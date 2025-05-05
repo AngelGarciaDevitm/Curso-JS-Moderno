@@ -180,3 +180,21 @@ display: block;
 margin-bottom: 10px;
 text-decoration: none;
 }
+.toast {
+    position: fixed;              /*Permite que flote sobre todo*/
+    bottom: 20px;                    /* Lo coloca en la parte superior */
+    right:30px;                  /* Lo coloca en el centro */
+    background-color: #3ab600;       /* Color oscuro por defecto */
+    color: white;                 /* Texto en blanco */
+    padding: 13px 30px;           /* Espaciado interno */
+    opacity: 0;                   /* Inicialmente invisible */
+    z-index: 9999;                /* Encima de todo */
+    transform: translateY(-20px); /* Comienza más arriba para efecto de entrada */
+    transition: opacity 0.4s ease, transform 0.4s ease; /* Movimirnto de transicion */
+  }
+  
+  .toast.show {
+    opacity: 1;                  /* Se hace visible */
+    transform: translateY(0);    /* Baja a su lugar */
+  }
+  
