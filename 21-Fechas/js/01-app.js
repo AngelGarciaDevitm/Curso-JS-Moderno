@@ -1,15 +1,15 @@
-const diaHoy = new Date();
+/*const diaHoy = new Date();
 
 let valor;
 
 valor = diaHoy;
 
 valor = diaHoy.getFullYear();
-//valor = diaHoy.getMonth();
-//valor = diaHoy.getMinutes();
-//valor = diaHoy.getHours();
-//valor = diaHoy.getTime();
-//valor = diaHoy.setFullYear(2010);
+valor = diaHoy.getMonth();
+valor = diaHoy.getMinutes();
+valor = diaHoy.getHours();
+valor = diaHoy.getTime();
+valor = diaHoy.setFullYear(2010);
 
 
-console.log(valor);
+console.log(valor);*/
