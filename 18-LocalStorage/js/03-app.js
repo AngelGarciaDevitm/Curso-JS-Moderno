@@ -9,4 +9,4 @@ console.log(mesesArray);
 localStorage.setItem('Meses', JSON.stringify(mesesArray));
 
 
-localStorage.clear();
+//localStorage.clear();
