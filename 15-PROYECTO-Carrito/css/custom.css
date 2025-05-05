@@ -182,8 +182,8 @@ text-decoration: none;
 }
 .toast {
     position: fixed;              /*Permite que flote sobre todo*/
-    top: 20px;                    /* Lo coloca en la parte superior */
-    left:50%;                  /* Lo coloca en el centro */
+    bottom: 20px;                    /* Lo coloca en la parte superior */
+    right:30px;                  /* Lo coloca en el centro */
     background-color: #3ab600;       /* Color oscuro por defecto */
     color: white;                 /* Texto en blanco */
     padding: 13px 30px;           /* Espaciado interno */
