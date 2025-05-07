@@ -16,7 +16,6 @@ function formatearEmpresa(empresa) {
     return `El Cliente ${nombre} tiene un saldo de ${saldo} y pertenece a la categoria ${categoria}`;
 }
 
-
 console.log( formatearCliente(juan));
 
 function Empresa(nombre, saldo, categoria) {

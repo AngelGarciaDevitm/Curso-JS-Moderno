@@ -1,4 +1,4 @@
-/*const cliente = {
+const cliente = {
     nombre: 'Juan',
     saldo: 500
 }
@@ -13,4 +13,4 @@ function Cliente(nombre,saldo) {
 
 const juan = new Cliente('Juan', 500);
 
-console.log(juan);*/
+console.log(juan);
