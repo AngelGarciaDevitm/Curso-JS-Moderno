@@ -44,4 +44,4 @@ persona.prototype.mostrarTelefono = function() {
     return `El telefono de esta persona es ${this.telefono}`
 }
 
-console.log(angel.mostrarTelefono());
+console.log(angel.mostrarTelefono())
