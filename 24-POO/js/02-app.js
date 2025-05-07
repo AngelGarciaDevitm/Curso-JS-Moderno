@@ -8,11 +8,18 @@ class Cliente {
         return `Cliente: ${this.nombre}, tu saldo es de; ${this.saldo}`;
     }
 
+    static bienvenida() {
+        return `Bienvenido al cajero`
+    }
+
 }
 
 const isaac = new Cliente('Isaac', 400);
 console.log(isaac.mostrarInformacion());
 console.log(isaac);
+
+console.log(Cliente.bienvenida());
+
 
 
 const Cliente2 = class {
