@@ -1,8 +1,9 @@
 //selectores 
 const mascotaInput = document.querySelector('#mascota');
 const propietarioInput = document.querySelector('#propietario');
+const telefonoInput = document.querySelector('#telefono');
 const fechaInput = document.querySelector('#fecha');
-const emailInput = document.querySelector('#email');
+const horaInput = document.querySelector('#hora');
 const sintomasInput = document.querySelector('#sintomas');
 
 //objeto de cita 
@@ -10,16 +11,19 @@ const citaObj = {
     mascota: '',
     propietario: '',
     fecha: '',
-    email:'',
+    telefono:'',
     sintomas: ''
 }
 
-// Eventos 
-mascotaInput.addEventListener('change', (e) => {
+// Eventos
+    mascotaInput.addEventListener('change', datosCita);
+    propietarioInput.addEventListener('change', datosCita);
+    telefonoInput.addEventListener('change', datosCita);
+    fechaInput.addEventListener('change', datosCita);
+    horaInput.addEventListener('change', datosCita);
+    sintomasInput.addEventListener('change', datosCita);
+
+function datosCita (e) {
     citaObj[e.target.name] = e.target.value;
     console.log(citaObj);
-})
-propietarioInput.addEventListener('change', (e) => {
-    citaObj[e.target.name] = e.target.value;
-    console.log(citaObj);
-})
+}
