@@ -30,16 +30,14 @@ const citaObj = {
 
 function datosCita (e) {
     citaObj[e.target.name] = e.target.value;
-    console.log(citaObj);
 }
 
 function submitCita (e) {
     e.preventDefault();
 
-    const { mascota, propietario, fecha, telefono, hora, sintomas } = citaObj
-    if(mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || telefono.trim() === '' || hora.trim() === '' || sintomas.trim() === '') {
+    
+    if( Object.values(citaObj).some(valor => valor.trim() === '') ) {
         console.log('Todos los campos son obligatorios')
         return;
     }
-
 }
