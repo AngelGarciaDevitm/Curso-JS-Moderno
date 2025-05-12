@@ -37,7 +37,35 @@ function submitCita (e) {
 
     
     if( Object.values(citaObj).some(valor => valor.trim() === '') ) {
-        console.log('Todos los campos son obligatorios')
+        const notificacion = new Notificacion({
+            texto: 'Todos los campos son obligatorios',
+            tipo: 'exito'
+        })
         return;
+    }
+}
+
+class Notificacion {
+
+    constructor({texto, tipo}) {
+        this.texto =  texto
+        this.tipo = tipo
+
+        this.mostrar();
+    }
+
+    mostrar() { 
+        // crear la notificacion 
+        const alerta = document.createElement('DIV')
+        alerta.classList.add('text-center', 'w-full', 'p-3', 'text-white', 'my-5', 'alert', 'uppercase', 'font-bold', 'text-sm')
+
+        // si es de tipo error agrega una clase 
+        this.tipo = 'error' ? alerta.classList.add('bg-red-500') : alerta.classList.add('bg-green-500')
+
+        //Mensaje de error
+        alerta.textContent = this.texto;
+
+        //insertar en el dom 
+        formulario.parentElement.insertBefore(alerta, formulario)
     }
 }
