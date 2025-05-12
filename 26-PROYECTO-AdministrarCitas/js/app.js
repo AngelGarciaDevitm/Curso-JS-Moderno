@@ -23,6 +23,7 @@ const citaObj = {
     mascota: '',
     propietario: '',
     fecha: '',
+    hora: '',
     telefono:'',
     sintomas: ''
 }
@@ -35,5 +36,10 @@ function datosCita (e) {
 function submitCita (e) {
     e.preventDefault();
 
-    console.log('sub');
+    const { mascota, propietario, fecha, telefono, hora, sintomas } = citaObj
+    if(mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || telefono.trim() === '' || hora.trim() === '' || sintomas.trim() === '') {
+        console.log('Todos los campos son obligatorios')
+        return;
+    }
+
 }
