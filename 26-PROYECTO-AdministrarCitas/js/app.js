@@ -5,3 +5,13 @@ const emailInput = document.querySelector('#email');
 const fechaInput = document.querySelector('#fecha');
 const sintomasInput = document.querySelector('#sintomas');
 
+//objeto de cita 
+const citaObj = {
+    paciente: '',
+    propietario: '', 
+    email: '',
+    fecha: '',
+    sintomas: ''
+}
+
+console.log(citaObj);
