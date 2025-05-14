@@ -8,6 +8,8 @@ const sintomasInput = document.querySelector('#sintomas');
 
 const formulario = document.querySelector('#nueva-cita')
 
+const contenedor = document.querySelector('#administra');
+
 // Eventos
 mascotaInput.addEventListener('change', datosCita);
 propietarioInput.addEventListener('change', datosCita);
@@ -68,8 +70,30 @@ class Citas {
     }
     agregarCita(cita) {
         this.citas = [...this.citas, cita];
+        this.mostrarCita();
+    }
 
-        console.log(this.citas);
+    mostrarCita() {
+
+        //Limpiar el HTML 
+        while(contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+
+        //Generando las citas
+        this.citas.forEach( cita => {
+            const divCita = document.createElement('DVI');
+            divCita.classList.add('mx-5', 'my-10', 'bg-white', 'shadow-md', 'px-5', 'py-10', 'rounded-xl');
+            
+            const paciente = document.createElement('P');
+            paciente.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case');
+            paciente.innerHTML = `<span class="font-bold uppercase">Paciente: </span>${cita.paciente}`
+
+            //inyectar al HTML
+            divCita.appendChild(paciente);
+
+            contenedor.appendChild(divCita);
+        })
     }
 }
 
