@@ -42,7 +42,8 @@ class Notificacion {
     mostrar() { 
         // crear la notificacion 
         const alerta = document.createElement('DIV')
-        alerta.classList.add('text-center', 'alert', 'd-block', 'col-12');
+        alerta.classList.add('text-center', 'w-full', 'p-3', 'text-white', 'my-5', 'alert', 'uppercase', 'font-bold', 'text-sm')
+
         //eliminar alertas duplicadas
         const alertaPrevia = document.querySelector('.alert')
         alertaPrevia?.remove();
@@ -139,4 +140,25 @@ function submitCita (e) {
     }
 
     citas.agregarCita(citaObj);
+    formulario.reset();
+    reiniciarObjeto();
+}
+
+function reiniciarObjeto() {
+    //Reiniciar el objeto 
+    //citaObj.mascota = '';
+    //citaObj.propietario = '';
+    //citaObj.fecha = '';
+    //citaObj.hora = '';
+    //citaObj.telefono = '';
+    //citaObj.sintomas = '';
+
+    Object.assign(citaObj, {
+        mascota:'',
+        propietario: '',
+        fecha: '',
+        hora: '',
+        telefono: '',
+        sintomas: ''
+    })
 }
