@@ -6,7 +6,8 @@ const fechaInput = document.querySelector('#fecha');
 const horaInput = document.querySelector('#hora');
 const sintomasInput = document.querySelector('#sintomas');
 
-const formulario = document.querySelector('#nueva-cita')
+const formulario = document.querySelector('#nueva-cita'); 
+const formularioInput = document.querySelector('#nueva-cita input[type="submit"]')
 const contenedor = document.querySelector('#administra');
 
 // Eventos
@@ -51,8 +52,11 @@ class Notificacion {
         alertaPrevia?.remove();
         
         // si es de tipo error agrega una clase 
-        this.tipo = 'error' ? alerta.classList.add('alert-danger') : alerta.classList.add('alert-success')
-
+        if (this.tipo === 'error') {
+            alerta.classList.add('alert-danger');
+        } else {
+            alerta.classList.add('alert-success');
+        }
         //Mensaje de error
         alerta.textContent = this.texto;
 
@@ -73,8 +77,11 @@ class Citas {
     agregarCita(cita) {
         this.citas = [...this.citas, cita];
         this.mostrarCita();
+    }
 
-        console.log(this.citas);
+    editar(citaActualizada) {
+        this.citas = this.citas.map( cita => cita.id === citaActualizada.id ? citaActualizada : cita );
+        this.mostrarCita();
     }
 
     mostrarCita() {
@@ -163,7 +170,11 @@ function submitCita (e) {
     }
 
     if(editando) {
-        console.log('editando')
+        citas.editar({...citaObj});
+        new Notificacion({
+            texto: 'Guardado correctamente',
+            tipo: 'correcto'
+        })    
     } else {
         citas.agregarCita({...citaObj});
         new Notificacion({
@@ -173,6 +184,8 @@ function submitCita (e) {
     }
     formulario.reset();
     reiniciarObjeto();
+    formulario.querySelector('button[type="submit"]').textContent = 'Nueva cita';
+    editando = false;
 
 }
 
@@ -211,4 +224,6 @@ function cargarEdicion (cita) {
     sintomasInput.value = cita.sintomas
 
     editando = true;
+
+    formulario.querySelector('button[type="submit"]').textContent = 'Guardar Cambios';
 }
