@@ -28,6 +28,7 @@ formulario.addEventListener('submit', submitCita);
 
 //objeto de cita 
 const citaObj = {
+    id: generarId(),
     mascota: '',
     propietario: '',
     fecha: '',
@@ -77,6 +78,8 @@ class Citas {
     agregarCita(cita) {
         this.citas = [...this.citas, cita];
         this.mostrarCita();
+
+        console.log(this.citas);
     }
 
     mostrarCita() {
@@ -155,7 +158,6 @@ const citas = new Citas();
 
 function submitCita (e) {
     e.preventDefault();
-
     
     if( Object.values(citaObj).some(valor => valor.trim() === '') ) {
         new Notificacion({
@@ -168,12 +170,10 @@ function submitCita (e) {
     citas.agregarCita({...citaObj});
     formulario.reset();
     reiniciarObjeto();
-
-        new Notificacion({
-            texto: 'Paciente registrado',
-            tipo: 'correcto'
-        })
-        return;
+    new Notificacion({
+        texto: 'Paciente registrado',
+        tipo: 'correcto'
+    })
 }
 
 function reiniciarObjeto() {
@@ -186,6 +186,7 @@ function reiniciarObjeto() {
     //citaObj.sintomas = '';
 
     Object.assign(citaObj, {
+        id: generarId(),
         mascota:'',
         propietario: '',
         fecha: '',
@@ -195,6 +196,17 @@ function reiniciarObjeto() {
     })
 }
 
+function generarId() {
+    return Math.random().toString(36).substring(2) + Date.now()
+}
+
 function cargarEdicion (cita) {
-    console.log(cita);
+    Object.assign(citaObj, cita); 
+
+    mascotaInput.value = cita.paciente
+    propietarioInput.value = cita.propietario
+    telefonoInput.value = cita.telefono
+    fechaInput.value = cita.fecha
+    horaInput.value = cita.hora
+    sintomasInput.value = cita.sintomas
 }
