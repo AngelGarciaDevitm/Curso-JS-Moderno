@@ -84,11 +84,22 @@ class Citas {
         this.mostrarCita();
     }
 
+    eliminar(id) {
+        this.citas = this.citas.filter( cita => cita.id !== id )
+        this.mostrarCita()
+    }
+
     mostrarCita() {
 
         //Limpiar el HTML 
         while(contenedor.firstChild) {
             contenedor.removeChild(contenedor.firstChild);
+        }
+
+        //si hay citas
+        if(this.citas.length === 0) {
+            contenedor.innerHTML = '<h2 id="administra" class="mb-4">No hay pacientes</h2>'
+            return;
         }
 
         //Generando las citas
@@ -122,7 +133,7 @@ class Citas {
 
             // Agregar un botón de eliminar...
             const btnEliminar = document.createElement('button');
-            btnEliminar.onclick = () => eliminarCita(id); // añade la opción de eliminar
+            btnEliminar.onclick = () => this.eliminar(cita.id); // añade la opción de eliminar
             btnEliminar.classList.add('btn', 'btn-danger', 'mr-2');
             btnEliminar.innerHTML = 'Eliminar <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>'
 
