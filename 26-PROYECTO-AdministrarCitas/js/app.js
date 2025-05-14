@@ -96,6 +96,7 @@ class Citas {
             contenedor.removeChild(contenedor.firstChild);
         }
 
+        
         //si hay citas
         if(this.citas.length === 0) {
             contenedor.innerHTML = '<h2 id="administra" class="mb-4">No hay pacientes</h2>'
