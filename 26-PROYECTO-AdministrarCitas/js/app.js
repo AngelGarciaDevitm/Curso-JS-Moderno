@@ -42,8 +42,7 @@ class Notificacion {
     mostrar() { 
         // crear la notificacion 
         const alerta = document.createElement('DIV')
-        alerta.classList.add('text-center', 'w-full', 'p-3', 'text-white', 'my-5', 'alert', 'uppercase', 'font-bold', 'text-sm')
-
+        alerta.classList.add('text-center', 'alert', 'd-block', 'col-12');
         //eliminar alertas duplicadas
         const alertaPrevia = document.querySelector('.alert')
         alertaPrevia?.remove();
@@ -81,19 +80,43 @@ class Citas {
         }
 
         //Generando las citas
-        this.citas.forEach( cita => {
-            const divCita = document.createElement('DVI');
-            divCita.classList.add('mx-5', 'my-10', 'bg-white', 'shadow-md', 'px-5', 'py-10', 'rounded-xl');
-            
-            const paciente = document.createElement('P');
-            paciente.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case');
-            paciente.innerHTML = `<span class="font-bold uppercase">Paciente: </span>${cita.paciente}`
+        this.citas.forEach(cita => {
+            const divCita = document.createElement('div');
+            divCita.classList.add('mx-5', 'my-10', 'bg-white', 'shadow-md', 'px-5', 'py-10' ,'rounded-xl', 'p-3');
+        
+            const paciente = document.createElement('p');
+            paciente.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case')
+            paciente.innerHTML = `<span class="font-weight-bolder">Paciente: </span> ${cita.mascota}`;
 
-            //inyectar al HTML
+            const propietario = document.createElement('p');
+            propietario.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case')
+            propietario.innerHTML = `<span class="font-weight-bolder">Propietario: </span> ${cita.propietario}`;
+        
+            const telefono = document.createElement('p');
+            telefono.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case')
+            telefono.innerHTML = `<span class="font-weight-bolder">Telefono: </span> ${cita.telefono}`;
+        
+            const fecha = document.createElement('p');
+            fecha.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case')
+            fecha.innerHTML = `<span class="font-weight-bolder">Fecha: </span>${cita.fecha}`;
+        
+            const hora = document.createElement('p');
+            hora.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case')
+            hora.innerHTML = `<span class="font-weight-bolder">Hora: </span>${cita.fecha}`;
+        
+            const sintomas = document.createElement('p');
+            sintomas.classList.add('font-normal', 'mb-3', 'text-gray-700', 'normal-case')
+            sintomas.innerHTML = `<span class="font-weight-bolder">Sintomas: </span> ${cita.sintomas}`;
+        
+            // Agregar al HTML
             divCita.appendChild(paciente);
-
+            divCita.appendChild(propietario);
+            divCita.appendChild(telefono);
+            divCita.appendChild(hora);
+            divCita.appendChild(fecha);
+            divCita.appendChild(sintomas);
             contenedor.appendChild(divCita);
-        })
+        });    
     }
 }
 
